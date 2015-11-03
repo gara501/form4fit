@@ -1,0 +1,7 @@
+.ui.menu .item>img.logo:not(.ui){
+	width: 100px;
+}
+
+.data-container {
+	padding: 25px 0;
+}

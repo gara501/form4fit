@@ -1,0 +1,236 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Soul4Fit BIO</title>
+  <meta name="description" content="Soul4Fit Bio Parameters">
+  <meta name="author" content="Soul4Fit Parameters">
+
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/soul4bio.css">
+  <script src="assets/js/jquery-2.1.4.min.js"></script>
+
+  <script src="semantic/dist/semantic.min.js"></script>
+  
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="soul4fit">
+    <!-- Menu -->
+    <div class="ui attached stackable menu">
+      <div class="ui container">
+        <a class="item">
+          <i class="home icon"></i> Home
+        </a>
+        <a class="item">
+          <i class="facebook icon"></i> Facebook
+        </a>
+        <a class="item">
+          <i class="instagram icon"></i> Instagram
+        </a>
+        <a class="item">
+          <i class="twitter icon"></i> Twitter
+        </a>
+        <a class="item">
+          <i class="external icon"></i> Page
+        </a>
+        <div class="right item">
+          <img class="logo" src="assets/img/logo.png" alt="soul4fit" />
+        </div>
+      </div>
+    </div>
+    <!-- End Menu -->
+    <!-- Content -->
+    <div class="ui container data-container">
+    <h1 class="ui center aligned header">Soul4Fit Bio</h1>
+      <h4 class="ui horizontal divider header">
+        <i class="write icon"></i>
+        Parametros Básicos
+      </h4>
+
+      <div class="ui segment">
+        <div class="ui attached message">
+          <div class="header">
+            Bienvenido/a!
+          </div>
+          <p>Por favor llena este formulario para poder calcular todos tus parametros físicos.</p>
+        </div>
+        <form id="formParameters" class="ui form attached fluid segment">
+          <div class="two fields">
+            <div class="field">
+              <label>Nombre</label>
+              <input name="firstname" placeholder="Nombre" type="text">
+            </div>
+            <div class="field">
+              <label>Apellido</label>
+              <input name="lastname" placeholder="Apellido" type="text">
+            </div>
+          </div>
+          <div class="two fields">
+            <div class="field">
+              <label>Edad</label>
+              <input name="age" placeholder="Edad" type="text">
+            </div>
+            <div class="field">
+              <label>Estatura</label>
+              <div class="ui right labeled input">
+                <input name="height" type="text" placeholder="Estatura">
+                <div class="ui basic label">
+                  cm
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="two fields">
+            <div class="field">
+              <label>Peso</label>
+              <div class="ui right labeled input">
+                <input name="weight" type="text" placeholder="Peso">
+                <div class="ui basic label">
+                  kg
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>Genero</label>
+               <select name="gender" class="ui fluid dropdown">
+                <option value="">Seleccionar</option>
+                <option value="1">Hombre</option>
+                <option value="2">Mujer</option>
+              </select>
+            </div>
+          </div>
+          <div class="two fields">
+            <div class="field">
+              <label>Cintura</label>
+              <div class="ui right labeled input">
+                <input name="waist" type="text" placeholder="Medida de la cintura">
+                <div class="ui basic label">
+                  cm
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>Cuello</label>
+               <div class="ui right labeled input">
+                <input name="neck" type="text" placeholder="Medida del cuello">
+                <div class="ui basic label">
+                  cm
+                </div>
+              </div>
+            </div>
+          </div>
+           <div class="two fields">
+            <div class="field">
+              <label>Cadera</label>
+              <div class="ui right labeled input">
+                <input name="hip" type="text" placeholder="Medida de la cadera (solo mujeres)">
+                <div class="ui basic label">
+                  cm
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>Ritmo cardiaco en reposo</label>
+              <div class="ui right labeled input">
+                <input name="ppm" type="text" placeholder="Pulsaciones por minuto recien despierta">
+                <div class="ui basic label">
+                  ppm
+                </div>
+              </div>
+            </div>
+          </div>
+           <div class="one field">
+            <div class="field">
+              <label>Factor de actividad física (Que tanto entrena a la semana)</label>
+               <select name="faf" class="ui dropdown">
+                    <option value="">Seleccionar</option>
+                    <option value="1">Sedentario</option>
+                    <option value="2">1-3 veces x semana</option>
+                    <option value="3">3-5 veces x semana</option>
+                    <option value="4">6-7 veces x semana</option>
+                    <option value="5">2 veces x día</option>
+                  </select>
+            </div>
+          </div>
+          <div class="two fields">
+            <div class="field">
+              <label>Objetivo</label>
+               <select name="objective" class="ui fluid dropdown">
+                <option value="">Seleccionar</option>
+                <option value="1">Definición</option>
+                <option value="2">Incrementar masa muscular</option>
+                <option value="2">Mantener peso</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Que método desea usar para su alimentación?</label>
+               <select name="nmet" class="ui fluid dropdown">
+                <option value="">Seleccionar</option>
+                <option value="1">Macronutrientes Tradicional</option>
+                <option value="2">Carb Cycling</option>
+              </select>
+            </div>
+          </div>
+          <div id="btnParameters" class="ui blue submit button">Calcular Parametros</div>
+        </form>
+      </div>
+       <h4 class="ui horizontal divider header">
+        <i class="alarm icon"></i>
+        Indicadores
+      </h4>
+      <div class="ui segment">
+        <div class="ui top attached tabular menu">
+          <div class="active item" data-tab="indif">Indicadores Físicos</div>
+          <div class="item" data-tab="macros">Macronutrientes</div>
+          <div class="item" data-tab="cardio">Ritmo Cardiaco</div>
+        </div>
+        <div class="ui bottom attached active tab segment" data-tab="indif">
+          <table class="ui definition table">
+            <tbody>
+              <tr>
+                <td class="two wide column">IMC</td>
+                <td><span id='imc' ></span></td>
+              </tr>
+              <tr>
+                <td>Indice metabolico basal</td>
+                <td><span id='imb' ></span></td>
+              </tr>
+               <tr>
+                <td>Relación cintura / estatura</td>
+                <td><span id='waistIndex' ></span></td>
+              </tr>
+              <tr>
+                <td>Calorías necesarias para mantenimiento</td>
+                <td><span id='cma'></span></td>
+              </tr>
+              <tr>
+                <td>Calorías totales según tu objetivo </td>
+                <td><span id='cob'></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ui bottom attached tab segment" data-tab="macros">
+          <p>Otro</p>
+          <p>Mas</p>
+        </div>
+        <div class="ui bottom attached tab segment" data-tab="cardio">
+          <p>Otro</p>
+          <p>Mas</p>
+        </div>
+
+      </div>
+    </div>
+
+     
+  </div>
+  <script src="assets/js/soul4bio.js"></script>
+</body>
+</html>
