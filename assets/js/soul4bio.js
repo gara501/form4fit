@@ -1,4 +1,4 @@
-var soul4bio = (function(){
+	var soul4bio = (function(){
 	//components initialization
 		$('.tabular.menu .item').tab();
 
@@ -10,53 +10,63 @@ var soul4bio = (function(){
 			height: '',
 			gender: '',
 			rc: '',
-			factivity: '',
+			activity: '',
 			objective:'',
 			waist: '',
 			hip: '',
 			neck: '',
 			method: '',
+			imcData: {},
+			imb: '',
+			pgc: '',
 			getIMC: function() {
-				this.height = this.height / 100;
-				var imcData = {};
-				imcData.IMC = (this.weight / (this.height * this.height)).toFixed(2);
-				if (IMC <= 18.5) {
-					imcData.rating = 'Bajo Peso';
+				var modHeight = this.height / 100;
+				this.imcData.IMC = (this.weight / (modHeight * modHeight)).toFixed(2);
+				if (this.imcData.IMC <= 18.5) {
+					this.imcData.rating = 'Debajo del peso normal';
 				}
-				if ((IMC > 18.5) && (IMC <= 24.9)) {
-					imcData.rating = 'Peso Normal';
+				if ((this.imcData.IMC > 18.5) && (this.imcData.IMC <= 24.9)) {
+					this.imcData.rating = 'Peso Normal';
 				}
-				if (IMC <= 18.5) {
-					imcData.rating = 'Bajo Peso';
+				if ((this.imcData.IMC > 25) && (this.imcData.IMC <= 29.9)) {
+					this.imcData.rating = 'Sobrepeso';
 				}
-				if (IMC <= 18.5) {
-					imcData.rating = 'Bajo Peso';
+				if (this.imcData.IMC > 30) {
+					this.imcData.rating = 'Obesidad';
 				}
-				return imcData;
+				return this.imcData;
 			},
 			getWaistHeightIndex: function() {
 				return this.waist / this.height;
 			},
-			getFatPercentage: function(gender){
-				var total = 0;
-				if (this.gender === 1) {
-					total = 495/(1.0324-0.19077(Math.log(this.waist-this.neck))+0.15456(Math.log(this.height)))-450;
+			getFatPercentage: function(){
+				if (this.gender === '1') {
+					var logWn = Math.log(this.waist - this.neck);
+					var logH = Math.log(this.height);
+					var logWnRes = (1.0324 - 0.19077) * logWn;
+					var logHSum = 0.15456 * logH;
+					this.pgc = 495 / ((logWnRes + logHSum ) - 450);
 				} else {
-					total = 495/(1.29579-0.35004(Math.log(this.waist+this.hip-this.neck))+0.22100(Math.log(this.height)))-450;
+					this.pgc = 495 / (1.29579 - 0.35004(Math.log(this.waist + this.hip - this.neck)) + 0.22100(Math.log(this.height))) - 450;
 				}
-				return total;
+				return this.pgc;
 			},
-			getMetabolicIndex: function(gender, weight, height, age) {
-				var tmb = 0;
-				if (this.gender === 1) {
-					tmb = ((10 * this.weight) + (6.25 * this.height) - (5 * this.age) + 5);
+			getMuscleMass: function() {
+				return this.weight * (100 - getFatPercentage());
+			},
+			getMetabolicIndex: function() {
+				console.log(this.gender);
+				if (this.gender === '1') {
+					console.log(this.weight);
+					console.log(this.height);
+					this.imb = ((10 * this.weight) + (6.25 * this.height) - (5 * this.age) + 5);
+					console.log(this.imb);
 				} else {
-					tmb = ((10 * this.weight) + (6.25 * this.height) - (5 * this.age) - 161);
+					this.imb = ((10 * this.weight) + (6.25 * this.height) - (5 * this.age) - 161);
 				}
-				return tmb;
+				return Math.ceil(this.imb * Number(this.activity));
 			},
-			getActivityIndex: function(activity)
-		};
+		}
 
 		//Actions
 		$('#btnParameters').click(function(event){
@@ -67,7 +77,8 @@ var soul4bio = (function(){
         values[this.name] = $(this).val();
     	});
 
-    	console.log(values);
+			//localStorage.setItem('userData', values);
+
 
 			var user = Object.create(Parameters);
 			user.height = values.height;
@@ -83,11 +94,18 @@ var soul4bio = (function(){
 			user.activity = values.activity;
 			user.objective = values.objective;
 			user.nmet = values.nmet;
+			user.valImc = user.getIMC();
+			user.valImb = user.getMetabolicIndex();
+			user.waistHeight = user.getWaistHeightIndex();
+			user.pgc = user.getFatPercentage();
 
 			//Response values asignation
-			$( "#imc" ).text(user.getIMC());
 
-			
+			$('#imc').text(user.valImc.IMC + ' - ' + user.valImc.rating);
+			$('#imb').text(user.valImb + ' Kcal');
+			$('#waistIndex').text(user.waistHeight.toFixed(2));
+			$('#pgc').text(user.pgc + ' %');
+
 		});
 
 })();

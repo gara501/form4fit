@@ -110,7 +110,7 @@
             <div class="field">
               <label>Cintura</label>
               <div class="ui right labeled input">
-                <input name="waist" type="text" placeholder="Medida de la cintura">
+                <input name="waist" type="text" placeholder="Diametro de la cintura">
                 <div class="ui basic label">
                   cm
                 </div>
@@ -119,7 +119,7 @@
             <div class="field">
               <label>Cuello</label>
                <div class="ui right labeled input">
-                <input name="neck" type="text" placeholder="Medida del cuello">
+                <input name="neck" type="text" placeholder="Diametro del cuello">
                 <div class="ui basic label">
                   cm
                 </div>
@@ -130,7 +130,7 @@
             <div class="field">
               <label>Cadera</label>
               <div class="ui right labeled input">
-                <input name="hip" type="text" placeholder="Medida de la cadera (solo mujeres)">
+                <input name="hip" type="text" placeholder="Diametro de la cadera (solo mujeres)">
                 <div class="ui basic label">
                   cm
                 </div>
@@ -139,7 +139,7 @@
             <div class="field">
               <label>Ritmo cardiaco en reposo</label>
               <div class="ui right labeled input">
-                <input name="ppm" type="text" placeholder="Pulsaciones por minuto recien despierta">
+                <input name="ppm" type="text" placeholder="Ritmo cardiaco al despertar">
                 <div class="ui basic label">
                   ppm
                 </div>
@@ -151,11 +151,11 @@
               <label>Factor de actividad física (Que tanto entrena a la semana)</label>
                <select name="activity" class="ui dropdown">
                     <option value="">Seleccionar</option>
-                    <option value="1">Sedentario</option>
-                    <option value="2">1-3 veces x semana</option>
-                    <option value="3">3-5 veces x semana</option>
-                    <option value="4">6-7 veces x semana</option>
-                    <option value="5">2 veces x día</option>
+                    <option value="1.2">Sedentario</option>
+                    <option value="1.375">1-3 veces x semana</option>
+                    <option value="1.55">3-5 veces x semana</option>
+                    <option value="1.725">6-7 veces x semana</option>
+                    <option value="1.9">2 veces x día</option>
                   </select>
             </div>
           </div>
@@ -188,7 +188,7 @@
       <div class="ui segment">
         <div class="ui top attached tabular menu">
           <div class="active item" data-tab="indif">Indicadores Físicos</div>
-          <div class="item" data-tab="macros">Macronutrientes</div>
+          <div class="item" data-tab="macros">Alimentación</div>
           <div class="item" data-tab="cardio">Ritmo Cardiaco</div>
         </div>
         <div class="ui bottom attached active tab segment" data-tab="indif">
@@ -199,20 +199,20 @@
                 <td><span id='imc' ></span></td>
               </tr>
               <tr>
-                <td>Indice metabolico basal</td>
+                <td>Indice metabolico basal (calorías a consumir para mantenimiento)</td>
                 <td><span id='imb' ></span></td>
               </tr>
                <tr>
-                <td>Relación cintura / estatura</td>
+                <td>Relación cintura / estatura (Adiposidad abdominal)</td>
                 <td><span id='waistIndex' ></span></td>
               </tr>
               <tr>
-                <td>Calorías necesarias para mantenimiento</td>
-                <td><span id='cma'></span></td>
+                <td>Calorías totales para lograr tu objetivo </td>
+                <td><span id='cob'></span></td>
               </tr>
               <tr>
-                <td>Calorías totales según tu objetivo </td>
-                <td><span id='cob'></span></td>
+                <td>Porcentaje de grasa corporal </td>
+                <td><span id='pgc'></span></td>
               </tr>
             </tbody>
           </table>
