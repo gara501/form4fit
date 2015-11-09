@@ -5,3 +5,11 @@
 .data-container {
 	padding: 25px 0;
 }
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}

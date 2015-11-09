@@ -41,13 +41,15 @@
 			},
 			getFatPercentage: function(){
 				if (this.gender === '1') {
-					var logWn = Math.log(this.waist - this.neck);
-					var logH = Math.log(this.height);
-					var logWnRes = (1.0324 - 0.19077) * logWn;
-					var logHSum = 0.15456 * logH;
-					this.pgc = 495 / ((logWnRes + logHSum ) - 450);
+					var logM = 1.0324 - (0.19077 * Math.log10(this.waist - this.neck));
+					var logH = 0.15456 * Math.log10(this.height);
+					this.pgc = Math.floor((495 / (logM + logH)) - 450);
 				} else {
-					this.pgc = 495 / (1.29579 - 0.35004(Math.log(this.waist + this.hip - this.neck)) + 0.22100(Math.log(this.height))) - 450;
+					var logM = 1.29579 - (0.35004 * Math.log10((this.waist + this.hip) - this.neck));
+					var logH = 0.22100 * Math.log10(this.height);
+					console.log(logM);
+					console.log(logH);
+					this.pgc = Math.floor((495 / (logM + logH)) - 450);
 				}
 				return this.pgc;
 			},
@@ -57,11 +59,10 @@
 			getMetabolicIndex: function() {
 				console.log(this.gender);
 				if (this.gender === '1') {
-					console.log(this.weight);
-					console.log(this.height);
 					this.imb = ((10 * this.weight) + (6.25 * this.height) - (5 * this.age) + 5);
 					console.log(this.imb);
 				} else {
+
 					this.imb = ((10 * this.weight) + (6.25 * this.height) - (5 * this.age) - 161);
 				}
 				return Math.ceil(this.imb * Number(this.activity));
@@ -104,6 +105,10 @@
 			$('#imc').text(user.valImc.IMC + ' - ' + user.valImc.rating);
 			$('#imb').text(user.valImb + ' Kcal');
 			$('#waistIndex').text(user.waistHeight.toFixed(2));
+			if (user.waistHeight.toFixed(2) > 0.5) {
+				$('#waistIndex').parent().find('p').addClass('visible');
+			}
+
 			$('#pgc').text(user.pgc + ' %');
 
 		});
