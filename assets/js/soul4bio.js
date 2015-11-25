@@ -1,7 +1,9 @@
 	var soul4bio = (function(){
 	//components initialization
 		$('.tabular.menu .item').tab();
+		$('.popup').popup({inline: true});
 
+	// Calculations
 		var Parameters = {
 			firstname: '',
 			lastname: '',
@@ -41,14 +43,12 @@
 			},
 			getFatPercentage: function(){
 				if (this.gender === '1') {
-					var logM = 1.0324 - (0.19077 * Math.log10(this.waist - this.neck));
+					var logM = 1.0324 - (0.19077 * Math.log10(Number(this.waist) - Number(this.neck)));
 					var logH = 0.15456 * Math.log10(this.height);
 					this.pgc = Math.floor((495 / (logM + logH)) - 450);
 				} else {
-					var logM = 1.29579 - (0.35004 * Math.log10((this.waist + this.hip) - this.neck));
+					var logM = 1.29579 - (0.35004 * Math.log10(Number(this.waist) + Number(this.hip) - Number(this.neck)));
 					var logH = 0.22100 * Math.log10(this.height);
-					console.log(logM);
-					console.log(logH);
 					this.pgc = Math.floor((495 / (logM + logH)) - 450);
 				}
 				return this.pgc;
@@ -67,6 +67,18 @@
 				}
 				return Math.ceil(this.imb * Number(this.activity));
 			},
+			getMcm: function() {
+				return (Number(this.weight) * (100 - this.getFatPercentage())) / 100;
+			},
+			getCob: function() {
+				var calories = this.getMetabolicIndex();
+				if (this.objective === '1') {
+					calories = calories - 500;
+				} else if (this.objective === '2') {
+					calories = calories + 500;
+				}
+				return calories;
+			}
 		}
 
 		//Actions
@@ -99,6 +111,8 @@
 			user.valImb = user.getMetabolicIndex();
 			user.waistHeight = user.getWaistHeightIndex();
 			user.pgc = user.getFatPercentage();
+			user.mcm = user.getMcm();
+
 
 			//Response values asignation
 
@@ -108,9 +122,9 @@
 			if (user.waistHeight.toFixed(2) > 0.5) {
 				$('#waistIndex').parent().find('p').addClass('visible');
 			}
-
 			$('#pgc').text(user.pgc + ' %');
-
+			$('#mcm').text(user.getMcm() + ' Kg');
+			$('#cob').text(user.getCob() + ' Kcal');
 		});
 
 })();

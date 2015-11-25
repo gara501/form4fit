@@ -164,9 +164,9 @@
               <label>Objetivo</label>
                <select name="objective" class="ui fluid dropdown">
                 <option value="">Seleccionar</option>
-                <option value="1">Definición</option>
+                <option value="1">Bajar grasa corporal</option>
                 <option value="2">Incrementar masa muscular</option>
-                <option value="2">Mantener peso</option>
+                <option value="2">Mantenerse</option>
               </select>
             </div>
             <div class="field">
@@ -195,26 +195,43 @@
           <table class="ui definition table">
             <tbody>
               <tr>
-                <td class="two wide column">IMC</td>
+                <td class="two wide column">IMC <i class="help circle icon link popup" data-content="El IMC (indice de masa corporal) representa una escala para medir si estas obeso o delgado, esta medida ha sido reemplazada por formulas mas exactas, personas con gran masa muscular no obtienen datos realistas." data-variation="wide"></i></td>
                 <td><span id='imc' ></span></td>
               </tr>
               <tr>
-                <td>Indice metabolico basal (calorías a consumir para mantenimiento)</td>
+                <td>Indice metabolico basal 
+                <i class="help circle icon link popup" data-content="Representa la cantidad
+                de calorías que debes consumir para mantener tu peso actual." data-variation="wide"></i>
+                </td>
+
                 <td><span id='imb' ></span></td>
               </tr>
                <tr>
-                <td>Relación cintura / estatura (Adiposidad abdominal)</td>
+                <td>Relación cintura / estatura <i class="help circle icon link popup" data-content="Representa
+                la cantidad de grasa abdominal, si es mayor a 0.5 hay riesgo de enfermedades
+                cardiovasculares arterioesclerósicas." data-variation="wide"></i>
+                </td>
                 <td><span id='waistIndex' ></span>
                   <p class="hidden">Hay riesgo de enfermedades cardiovasculares arterioesclerósicas.</p>
                 </td>
               </tr>
               <tr>
-                <td>Calorías totales para lograr tu objetivo </td>
+                <td>Calorías totales para lograr tu objetivo <i class="help circle icon link popup" data-content="Representa
+                la cantidad de calorias que debes ingerir a diario para lograr el objetivo
+                que has seleccionado." data-variation="wide"></i>
+                </td>
                 <td><span id='cob'></span></td>
               </tr>
               <tr>
-                <td>Porcentaje de grasa corporal </td>
+                <td>Porcentaje de grasa corporal <i class="help circle icon link popup" data-content="Muestra
+                la cantidad de grasa que tienes en el cuerpo, esta medida es una aproximación, lo mejor es usar
+                un caliper o un mecanismo de bioimpedancia magnetica." data-variation="wide"></i></td>
                 <td><span id='pgc'></span></td>
+              </tr>
+              <tr>
+                <td>Masa corporal magra <i class="help circle icon link popup" data-content="Representa
+                la cantidad de masa total menos la grasa. Mientras mas elevado sea este indice, mas masa muscular tendrás en el cuerpo." data-variation="wide"></i></td>
+                <td><span id='mcm'></span></td>
               </tr>
             </tbody>
           </table>
