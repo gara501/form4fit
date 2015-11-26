@@ -161,7 +161,7 @@
           </div>
           <div class="two fields">
             <div class="field">
-              <label>Objetivo</label>
+              <label>¿Cual es su objetivo?</label>
                <select name="objective" class="ui fluid dropdown">
                 <option value="">Seleccionar</option>
                 <option value="1">Bajar grasa corporal</option>
@@ -170,38 +170,39 @@
               </select>
             </div>
             <div class="field">
-              <label>Que método desea usar para su alimentación?</label>
-               <select name="nmet" class="ui fluid dropdown">
+              <label>¿Que cantidad de proteinas necesita ingerir?</label>
+               <select name="proteinsLevel" class="ui fluid dropdown">
                 <option value="">Seleccionar</option>
-                <option value="1">Dieta Flexible (IIFYM)</option>
-                <option value="2">Ciclo de Carbohidratos (Carb Cycling)</option>
+                <option value="1">Cantidad normal </option>
+                <option value="2">Cantidad intermedia (Incremento de masa muscular)</option>
+                <option value="3">Cantidad Alta (Entrenamiento de fuerza intenso)</option>
               </select>
             </div>
           </div>
           <div id="btnParameters" class="ui blue submit button">Calcular Parametros</div>
         </form>
       </div>
-       <h4 class="ui horizontal divider header">
+       <h4 id="results" class="ui horizontal divider header">
         <i class="alarm icon"></i>
-        Indicadores
+        Resultados
       </h4>
       <div class="ui segment">
-        <div class="ui top attached tabular menu">
-          <div class="active item" data-tab="indif">Indicadores Físicos</div>
-          <div class="item" data-tab="macros">Alimentación</div>
-          <div class="item" data-tab="cardio">Ritmo Cardiaco</div>
-        </div>
-        <div class="ui bottom attached active tab segment" data-tab="indif">
-          <table class="ui definition table">
+        <div class="ui styled fluid accordion">
+          <div class="title active">
+            <i class="dropdown icon"></i>
+            Indicadores Físicos
+          </div>
+          <div class="content active">
+            <table class="ui definition table">
             <tbody>
               <tr>
-                <td class="two wide column">IMC <i class="help circle icon link popup" data-content="El IMC (indice de masa corporal) representa una escala para medir si estas obeso o delgado, esta medida ha sido reemplazada por formulas mas exactas, personas con gran masa muscular no obtienen datos realistas." data-variation="wide"></i></td>
+                <td class="two wide column">IMC <i class="help circle icon link popup" data-content="El IMC (indice de masa corporal) representa una escala para medir si esta obeso o delgado, esta medida ha sido reemplazada por formulas mas exactas, personas con gran masa muscular no obtienen datos realistas." data-variation="wide"></i></td>
                 <td><span id='imc' ></span></td>
               </tr>
               <tr>
                 <td>Indice metabolico basal 
                 <i class="help circle icon link popup" data-content="Representa la cantidad
-                de calorías que debes consumir para mantener tu peso actual." data-variation="wide"></i>
+                de calorías que debe consumir para mantener tu peso actual." data-variation="wide"></i>
                 </td>
 
                 <td><span id='imb' ></span></td>
@@ -216,33 +217,68 @@
                 </td>
               </tr>
               <tr>
-                <td>Calorías totales para lograr tu objetivo <i class="help circle icon link popup" data-content="Representa
-                la cantidad de calorias que debes ingerir a diario para lograr el objetivo
-                que has seleccionado." data-variation="wide"></i>
-                </td>
-                <td><span id='cob'></span></td>
-              </tr>
-              <tr>
                 <td>Porcentaje de grasa corporal <i class="help circle icon link popup" data-content="Muestra
-                la cantidad de grasa que tienes en el cuerpo, esta medida es una aproximación, lo mejor es usar
-                un caliper o un mecanismo de bioimpedancia magnetica." data-variation="wide"></i></td>
+                la cantidad de grasa subcutanea que tiene en el cuerpo, la medida obtenida acá es una aproximación, para obtener un dato mas preciso se recomienda usar un caliper o un medidor de bioimpedancia magnética." data-variation="wide"></i></td>
                 <td><span id='pgc'></span></td>
               </tr>
               <tr>
                 <td>Masa corporal magra <i class="help circle icon link popup" data-content="Representa
-                la cantidad de masa total menos la grasa. Mientras mas elevado sea este indice, mas masa muscular tendrás en el cuerpo." data-variation="wide"></i></td>
+                la cantidad de masa muscular que tienes en el cuerpo. Mientras mas cerca esté al peso total mejor." data-variation="wide"></i></td>
                 <td><span id='mcm'></span></td>
               </tr>
             </tbody>
           </table>
-        </div>
-        <div class="ui bottom attached tab segment" data-tab="macros">
-          <p>Otro</p>
-          <p>Mas</p>
-        </div>
-        <div class="ui bottom attached tab segment" data-tab="cardio">
-          <p>Otro</p>
-          <p>Mas</p>
+          </div>
+          <div class="title">
+            <i class="dropdown icon"></i>
+            Alimentación
+          </div>
+          <div class="content">
+            <table class="ui definition table">
+            <tbody>
+              <tr>
+                <td>Calorías totales para lograr su objetivo <i class="help circle icon link popup" data-content="Representa
+                la cantidad de calorias que debe ingerir a diario para lograr el objetivo
+                que ha sido seleccionado. (Mantener, subir o bajar)." data-variation="wide"></i></td>
+                <td>Calorias Totales <span class="calories" id='cob'></span></td>
+                <td>Calorias por plato 3 comidas x dia <span class="calories" id='cob3'></span></td>
+                <td>Calorias por plato 4 comidas x dia <span class="calories" id='cob4'></span></td>
+                <td>Calorias por plato 5 comidas x dia <span class="calories" id='cob5'></span></td>
+              </tr>
+              <tr>
+                <td class="two wide column"><div class="ui blue ribbon label">Total Carbohidratos</div> </td>              
+                <td><span class="macros" id='carbs'></span></td>
+                <td><span class="macros" id='carbs3'></span></td>
+                <td><span class="macros" id='carbs4'></span></td>
+                <td><span class="macros" id='carbs5'></span></td>
+              </tr>
+              <tr>
+                <td class="two wide column"><div class="ui red ribbon label">Total Grasas</div>
+                </td>
+                <td><span class="macros" id='fat'></span></td>
+                <td><span class="macros" id='fat3'></span></td>
+                <td><span class="macros" id='fat4'></span></td>
+                <td><span class="macros" id='fat5'></span></td>
+              </tr>
+              <tr>
+                <td class="two wide column">
+                  <div class="ui green ribbon label">Total Proteinas </div>
+                </td>
+                <td><span class="macros" id='protein'></span></td>
+                <td><span class="macros" id='protein3'></span></td>
+                <td><span class="macros" id='protein4'></span></td>
+                <td><span class="macros" id='protein5'></span></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <div class="title">
+            <i class="dropdown icon"></i>
+            Indicador de Esfuerzo Cardiovascular
+          </div>
+          <div class="content">
+            
+          </div>
         </div>
 
       </div>

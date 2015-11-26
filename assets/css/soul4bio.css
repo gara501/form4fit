@@ -13,3 +13,16 @@
 .visible {
   display: block;
 }
+
+.calories, .macros {
+	display: block;
+	font-weight: bold;
+}
+
+.calories {
+	font-size: 1.4rem;
+}
+
+.macros {
+	font-size: 1.1rem;	
+}
