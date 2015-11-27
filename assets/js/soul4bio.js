@@ -12,7 +12,7 @@
 			weight: '',
 			height: '',
 			gender: '',
-			rc: '',
+			restHeartRate: '',
 			activity: '',
 			objective:'',
 			waist: '',
@@ -24,6 +24,7 @@
 			macros: {},
 			imb: '',
 			pgc: '',
+			heartRate: {},
 			getIMC: function() {
 				var modHeight = this.height / 100;
 				this.imcData.IMC = (this.weight / (modHeight * modHeight)).toFixed(2);
@@ -55,7 +56,7 @@
 					this.pgc = Math.floor((495 / (logM + logH)) - 450);
 				}
 				return this.pgc;
-			},			
+			},
 			getMetabolicIndex: function() {
 				console.log(this.gender);
 				if (this.gender === '1') {
@@ -95,11 +96,10 @@
 				if (this.proteinsLevel === '1') {
 					protein = (this.mcm * 2.2) * 0.825;
 				} else if (this.proteinsLevel === '2') {
-					protein = (this.mcm * 2.2) * 1.2;					
+					protein = (this.mcm * 2.2) * 1.2;
 				} else {
 					protein = (this.mcm * 2.2) * 1.5;
 				}
-				
 				protein = Math.ceil(protein);
 				fatsKcal = totalCalories * 0.25;
 				fat = Math.ceil(fatsKcal / 9);
@@ -109,7 +109,7 @@
 				carbsKcal = totalCalories - (proteinsKcal + fatsKcal);
 				carbs = Math.ceil(carbsKcal / 4);
 				carbsPercentage = ((carbsKcal / totalCalories) * 100).toFixed(2);
-				
+
 				var totalMeals ={totalx3: this.getCaloriesxMeal(totalCalories,3),
 												 totalx4: this.getCaloriesxMeal(totalCalories,4),
 												 totalx5: this.getCaloriesxMeal(totalCalories,5)};
@@ -136,6 +136,24 @@
 			},
 			getCaloriesxMeal: function(calories, meals) {
 				return Math.ceil(calories / meals);
+			},
+			getHeartRate: function(){
+				var maxHr = Number(220 - this.age);
+				this.ppm = Number(this.ppm);
+				console.log(maxHr);
+				console.log(this.ppm);
+				var heartRate = {hrmax: maxHr,
+													hr50: Math.ceil(this.getheartRateCalculation(maxHr,this.ppm, 0.5)),
+													hr60: Math.ceil(this.getheartRateCalculation(maxHr,this.ppm, 0.6)),
+													hr70: Math.ceil(this.getheartRateCalculation(maxHr,this.ppm, 0.7)),
+													hr80: Math.ceil(this.getheartRateCalculation(maxHr,this.ppm, 0.8)),
+													hr90: Math.ceil(this.getheartRateCalculation(maxHr,this.ppm, 0.9))};
+				return heartRate;
+			},
+			getheartRateCalculation: function (hrMax, hrRest, percentage) {
+				var karvonen = ((hrMax - hrRest) * percentage) + hrRest;
+				console.log('karvonen',karvonen);
+				return karvonen;
 			}
 		}
 
@@ -172,6 +190,7 @@
 			user.mcm = user.getMcm();
 			user.cob = user.getCob();
 			user.macros = user.getMacros(user.cob);
+			user.heartRate = user.getHeartRate();
 
 			//Response values asignation
 
@@ -199,11 +218,18 @@
 			$('#fat3').text(user.macros.fatx3 + ' gr');
 			$('#fat4').text(user.macros.fatx4 + ' gr');
 			$('#fat5').text(user.macros.fatx5 + ' gr');
-			
-			 $('html, body').animate({
-        	scrollTop: $("#results").offset().top
-    		}, 1000);
-		});
+			$('#hr50').text(user.heartRate.hr50 + ' ppm ');
+			$('#hr60').text(user.heartRate.hr60 + ' ppm ');
+			$('#hr70').text(user.heartRate.hr70 + ' ppm ');
+			$('#hr80').text(user.heartRate.hr80 + ' ppm ');
+			$('#hr90').text(user.heartRate.hr90 + ' ppm ');
+			$('#hrmax').text(user.heartRate.hrmax + ' ppm ');
+
+
+			$('html, body').animate({
+	        	scrollTop: $("#results").offset().top
+	    		}, 1000);
+			});
 
 })();
 

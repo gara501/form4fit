@@ -14,7 +14,7 @@
   display: block;
 }
 
-.calories, .macros {
+.calories, .macros, .subt {
 	display: block;
 	font-weight: bold;
 }
@@ -24,5 +24,5 @@
 }
 
 .macros {
-	font-size: 1.1rem;	
+	font-size: 1.1rem;
 }
