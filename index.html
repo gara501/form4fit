@@ -1,1 +1,292 @@
 Formulary
+  <!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Soul4Fit BIO</title>
+  <meta name="description" content="Soul4Fit Bio Parameters">
+  <meta name="author" content="Soul4Fit Parameters">
+
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/soul4bio.css">
+  <script src="assets/js/jquery-2.1.4.min.js"></script>
+
+  <script src="semantic/dist/semantic.min.js"></script>
+  
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="soul4fit">
+    <!-- Menu -->
+    <div class="ui attached stackable menu">
+      <div class="ui container">
+        <a class="item">
+          <i class="home icon"></i> Home
+        </a>
+        <a class="item"  href="https://www.facebook.com/soul4fit/">
+          <i class="facebook icon"></i> Facebook
+        </a>
+        <a class="item" href="https://www.instagram.com/soul4fit/">
+          <i class="instagram icon"></i> Instagram
+        </a>
+        <a class="item" href="https://www.twitter.com/soul4fit/">
+          <i class="twitter icon"></i> Twitter
+        </a>
+        <a class="item" href="https://www.soul4fit.com">
+          <i class="external icon"></i> Page
+        </a>
+        <div class="right item">
+          <img class="logo" src="assets/img/logo.png" alt="soul4fit" />
+        </div>
+      </div>
+    </div>
+    <!-- End Menu -->
+    <!-- Content -->
+    <div class="ui container data-container">
+    <h1 class="ui center aligned header">Soul4Fit Bio</h1>
+      <h4 class="ui horizontal divider header">
+        <i class="write icon"></i>
+        Parametros Básicos
+      </h4>
+
+      <div class="ui segment">
+        <div class="ui attached message">
+          <div class="header">
+            Bienvenido/a!
+          </div>
+          <p>Por favor llena este formulario para poder calcular todos tus parametros físicos.</p>
+        </div>
+        <form id="formParameters" class="ui form attached fluid segment">
+          <div class="two fields">
+            <div class="field">
+              <label>Nombre</label>
+              <input name="firstname" placeholder="Nombre" type="text">
+            </div>
+            <div class="field">
+              <label>Apellido</label>
+              <input name="lastname" placeholder="Apellido" type="text">
+            </div>
+          </div>
+          <div class="two fields">
+            <div class="field">
+              <label>Edad</label>
+              <input name="age" placeholder="Edad" type="text">
+            </div>
+            <div class="field">
+              <label>Estatura</label>
+              <div class="ui right labeled input">
+                <input name="height" type="text" placeholder="Estatura">
+                <div class="ui basic label">
+                  cm
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="two fields">
+            <div class="field">
+              <label>Peso</label>
+              <div class="ui right labeled input">
+                <input name="weight" type="text" placeholder="Peso">
+                <div class="ui basic label">
+                  kg
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>Genero</label>
+               <select name="gender" class="ui fluid dropdown">
+                <option value="">Seleccionar</option>
+                <option value="1">Hombre</option>
+                <option value="2">Mujer</option>
+              </select>
+            </div>
+          </div>
+          <div class="two fields">
+            <div class="field">
+              <label>Cintura</label>
+              <div class="ui right labeled input">
+                <input name="waist" type="text" placeholder="Diametro de la cintura">
+                <div class="ui basic label">
+                  cm
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>Cuello</label>
+               <div class="ui right labeled input">
+                <input name="neck" type="text" placeholder="Diametro del cuello">
+                <div class="ui basic label">
+                  cm
+                </div>
+              </div>
+            </div>
+          </div>
+           <div class="two fields">
+            <div class="field">
+              <label>Cadera</label>
+              <div class="ui right labeled input">
+                <input name="hip" type="text" placeholder="Diametro de la cadera (solo mujeres)">
+                <div class="ui basic label">
+                  cm
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>Ritmo cardiaco en reposo</label>
+              <div class="ui right labeled input">
+                <input name="ppm" type="text" placeholder="Ritmo cardiaco al despertar">
+                <div class="ui basic label">
+                  ppm
+                </div>
+              </div>
+            </div>
+          </div>
+           <div class="one field">
+            <div class="field">
+              <label>Factor de actividad física (Que tanto entrena a la semana)</label>
+               <select name="activity" class="ui dropdown">
+                    <option value="">Seleccionar</option>
+                    <option value="1.2">Sedentario</option>
+                    <option value="1.375">1-3 veces x semana</option>
+                    <option value="1.55">3-5 veces x semana</option>
+                    <option value="1.725">6-7 veces x semana</option>
+                    <option value="1.9">2 veces x día</option>
+                  </select>
+            </div>
+          </div>
+          <div class="two fields">
+            <div class="field">
+              <label>¿Cual es su objetivo?</label>
+               <select name="objective" class="ui fluid dropdown">
+                <option value="">Seleccionar</option>
+                <option value="1">Bajar grasa corporal</option>
+                <option value="2">Incrementar masa muscular</option>
+                <option value="2">Mantenerse</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>¿Que cantidad de proteinas necesita ingerir?</label>
+               <select name="proteinsLevel" class="ui fluid dropdown">
+                <option value="">Seleccionar</option>
+                <option value="1">Cantidad normal </option>
+                <option value="2">Cantidad intermedia (Incremento de masa muscular)</option>
+                <option value="3">Cantidad Alta (Entrenamiento de fuerza intenso)</option>
+              </select>
+            </div>
+          </div>
+          <div id="btnParameters" class="ui blue submit button">Calcular Parametros</div>
+        </form>
+      </div>
+       <h4 id="results" class="ui horizontal divider header">
+        <i class="alarm icon"></i>
+        Resultados
+      </h4>
+      <div class="ui segment">
+        <div class="ui styled fluid accordion">
+          <div class="title active">
+            <i class="dropdown icon"></i>
+            Indicadores Físicos
+          </div>
+          <div class="content active">
+            <table class="ui definition table">
+            <tbody>
+              <tr>
+                <td class="two wide column">IMC <i class="help circle icon link popup" data-content="El IMC (indice de masa corporal) representa una escala para medir si esta obeso o delgado, esta medida ha sido reemplazada por formulas mas exactas, personas con gran masa muscular no obtienen datos realistas." data-variation="wide"></i></td>
+                <td><span id='imc' ></span></td>
+              </tr>
+              <tr>
+                <td>Indice metabolico basal 
+                <i class="help circle icon link popup" data-content="Representa la cantidad
+                de calorías que debe consumir para mantener tu peso actual." data-variation="wide"></i>
+                </td>
+
+                <td><span id='imb' ></span></td>
+              </tr>
+               <tr>
+                <td>Relación cintura / estatura <i class="help circle icon link popup" data-content="Representa
+                la cantidad de grasa abdominal, si es mayor a 0.5 hay riesgo de enfermedades
+                cardiovasculares arterioesclerósicas." data-variation="wide"></i>
+                </td>
+                <td><span id='waistIndex' ></span>
+                  <p class="hidden">Hay riesgo de enfermedades cardiovasculares arterioesclerósicas.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>Porcentaje de grasa corporal <i class="help circle icon link popup" data-content="Muestra
+                la cantidad de grasa subcutanea que tiene en el cuerpo, la medida obtenida acá es una aproximación, para obtener un dato mas preciso se recomienda usar un caliper o un medidor de bioimpedancia magnética." data-variation="wide"></i></td>
+                <td><span id='pgc'></span></td>
+              </tr>
+              <tr>
+                <td>Masa corporal magra <i class="help circle icon link popup" data-content="Representa
+                la cantidad de masa muscular que tienes en el cuerpo. Mientras mas cerca esté al peso total mejor." data-variation="wide"></i></td>
+                <td><span id='mcm'></span></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <div class="title">
+            <i class="dropdown icon"></i>
+            Alimentación
+          </div>
+          <div class="content">
+            <table class="ui definition table">
+            <tbody>
+              <tr>
+                <td>Calorías totales para lograr su objetivo <i class="help circle icon link popup" data-content="Representa
+                la cantidad de calorias que debe ingerir a diario para lograr el objetivo
+                que ha sido seleccionado. (Mantener, subir o bajar)." data-variation="wide"></i></td>
+                <td>Calorias Totales <span class="calories" id='cob'></span></td>
+                <td>Calorias por plato 3 comidas x dia <span class="calories" id='cob3'></span></td>
+                <td>Calorias por plato 4 comidas x dia <span class="calories" id='cob4'></span></td>
+                <td>Calorias por plato 5 comidas x dia <span class="calories" id='cob5'></span></td>
+              </tr>
+              <tr>
+                <td class="two wide column"><div class="ui blue ribbon label">Total Carbohidratos</div> </td>              
+                <td><span class="macros" id='carbs'></span></td>
+                <td><span class="macros" id='carbs3'></span></td>
+                <td><span class="macros" id='carbs4'></span></td>
+                <td><span class="macros" id='carbs5'></span></td>
+              </tr>
+              <tr>
+                <td class="two wide column"><div class="ui red ribbon label">Total Grasas</div>
+                </td>
+                <td><span class="macros" id='fat'></span></td>
+                <td><span class="macros" id='fat3'></span></td>
+                <td><span class="macros" id='fat4'></span></td>
+                <td><span class="macros" id='fat5'></span></td>
+              </tr>
+              <tr>
+                <td class="two wide column">
+                  <div class="ui green ribbon label">Total Proteinas </div>
+                </td>
+                <td><span class="macros" id='protein'></span></td>
+                <td><span class="macros" id='protein3'></span></td>
+                <td><span class="macros" id='protein4'></span></td>
+                <td><span class="macros" id='protein5'></span></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <div class="title">
+            <i class="dropdown icon"></i>
+            Indicador de Esfuerzo Cardiovascular
+          </div>
+          <div class="content">
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+     
+  </div>
+  <script src="assets/js/soul4bio.js"></script>
+</body>
+</html>
