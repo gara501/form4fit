@@ -1,4 +1,4 @@
-  <!doctype html>
+<!doctype html>
 
 <html lang="en">
 <head>
@@ -7,17 +7,20 @@
   <title>Soul4Fit BIO</title>
   <meta name="description" content="Soul4Fit Bio Parameters">
   <meta name="author" content="Soul4Fit Parameters">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/soul4bio.css">
   <script src="assets/js/jquery-2.1.4.min.js"></script>
 
   <script src="semantic/dist/semantic.min.js"></script>
-  
 
   <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.0.5/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script>html5.addElements('todo')</script>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 </head>
 
 <body>
@@ -28,16 +31,16 @@
         <a class="item">
           <i class="home icon"></i> Home
         </a>
-        <a class="item"  href="https://www.facebook.com/soul4fit/">
+        <a class="item">
           <i class="facebook icon"></i> Facebook
         </a>
-        <a class="item" href="https://www.instagram.com/soul4fit/">
+        <a class="item">
           <i class="instagram icon"></i> Instagram
         </a>
-        <a class="item" href="https://www.twitter.com/soul4fit/">
+        <a class="item">
           <i class="twitter icon"></i> Twitter
         </a>
-        <a class="item" href="https://www.soul4fit.com">
+        <a class="item">
           <i class="external icon"></i> Page
         </a>
         <div class="right item">
@@ -246,14 +249,14 @@
                 <td>Calorias por plato 5 comidas x dia <span class="calories" id='cob5'></span></td>
               </tr>
               <tr>
-                <td class="two wide column"><div class="ui blue ribbon label">Total Carbohidratos</div> </td>              
+                <td class="two wide column"><div class="ui blue ribbon label">Carbohidratos</div> </td>
                 <td><span class="macros" id='carbs'></span></td>
                 <td><span class="macros" id='carbs3'></span></td>
                 <td><span class="macros" id='carbs4'></span></td>
                 <td><span class="macros" id='carbs5'></span></td>
               </tr>
               <tr>
-                <td class="two wide column"><div class="ui red ribbon label">Total Grasas</div>
+                <td class="two wide column"><div class="ui red ribbon label">Grasas</div>
                 </td>
                 <td><span class="macros" id='fat'></span></td>
                 <td><span class="macros" id='fat3'></span></td>
@@ -262,7 +265,7 @@
               </tr>
               <tr>
                 <td class="two wide column">
-                  <div class="ui green ribbon label">Total Proteinas </div>
+                  <div class="ui green ribbon label">Proteinas </div>
                 </td>
                 <td><span class="macros" id='protein'></span></td>
                 <td><span class="macros" id='protein3'></span></td>
@@ -277,14 +280,49 @@
             Indicador de Esfuerzo Cardiovascular
           </div>
           <div class="content">
-            
+            <div class="ui red segment">Intensidad del 90% al 100% Zona peligrosa. </div>
+            <div class="ui orange segment">Intensidad del 80% al 90% Zona umbral anaeróbico. </div>
+            <div class="ui yellow segment">Intensidad del 70% al 80% Zona umbral aeróbica. </div>
+            <div class="ui blue segment">Intensidad del 80% al 90% Zona manejo de peso. </div>
+            <div class="ui green segment">Intensidad del 80% al 90% Zona de seguridad. </div>
+
+              <table class="ui definition table">
+            <tbody>
+              <tr>
+                <td> <i class="help circle icon link popup" data-content="Intervalos de intensidad en pulsaciones por minuto (ppm) para el entrenamiento cardiovascular, no deberia de sobrepasar el 100% puede poner en riesgo su salud." data-variation="wide"></i></td>
+                <td><span class="subt">Indicador de intensidad para la Frecuencia cardiaca</span> </td>
+              </tr>
+              <tr>
+                <td class="two wide column"><div class="ui blue ribbon label">50%</div> </td>
+                <td><span class="subt" id='hr50'></span></td>
+              </tr>
+              <tr>
+                <td class="two wide column"><div class="ui blue ribbon label">60%</div> </td>
+                <td><span class="subt" id='hr60'></span></td>
+              </tr>
+              <tr>
+                <td class="two wide column"><div class="ui orange ribbon label">70%</div> </td>
+                <td><span class="subt" id='hr70'></span></td>
+              </tr>
+              <tr>
+                <td class="two wide column"><div class="ui orange ribbon label">80%</div> </td>
+                <td><span class="subt" id='hr80'></span></td>
+              </tr>
+              <tr>
+                <td class="two wide column"><div class="ui red ribbon label">90%</div> </td>
+                <td><span class="subt" id='hr90'></span></td>
+              </tr>
+              <tr>
+                <td class="two wide column"><div class="ui red ribbon label">100%</div> </td>
+                <td><span class="subt" id='hrmax'></span></td>
+              </tr>
+            </tbody>
+          </table>
           </div>
         </div>
 
       </div>
     </div>
-
-     
   </div>
   <script src="assets/js/soul4bio.js"></script>
 </body>
