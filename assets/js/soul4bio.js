@@ -81,7 +81,7 @@
 				return calories;
 			},
 			getMacros: function(totalCalories) {
-				console.log('Calorias', totalCalories);
+				//Harris Bennedict formula to estimate
 				var macros = {};
 				var protein ='';
 				var proteinsKcal = 0;
@@ -151,6 +151,7 @@
 				return heartRate;
 			},
 			getheartRateCalculation: function (hrMax, hrRest, percentage) {
+				//Karvonen formula to Estimate
 				var karvonen = ((hrMax - hrRest) * percentage) + hrRest;
 				console.log('karvonen',karvonen);
 				return karvonen;
