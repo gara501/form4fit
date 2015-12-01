@@ -69,7 +69,8 @@
 				return Math.ceil(this.imb * Number(this.activity));
 			},
 			getMcm: function() {
-				return (Number(this.weight) * (100 - this.getFatPercentage())) / 100;
+				//return (Number(this.weight) * (100 - this.getFatPercentage())) / 100;
+				return (Number(this.weight) * (100 - this.pgc)) / 100;
 			},
 			getCob: function() {
 				var calories = this.getMetabolicIndex();
@@ -171,6 +172,7 @@
 
 
 			var user = Object.create(Parameters);
+
 			user.height = values.height;
 			user.weight = values.weight;
 			user.waist = values.waist;
@@ -187,11 +189,13 @@
 			user.valImc = user.getIMC();
 			user.valImb = user.getMetabolicIndex();
 			user.waistHeight = user.getWaistHeightIndex();
-			user.pgc = user.getFatPercentage();
+			var calculatedFatPercentaje = user.getFatPercentage();
+			user.pgc = values.fatp > 0 ? values.fatp : calculatedFatPercentaje;
 			user.mcm = user.getMcm();
 			user.cob = user.getCob();
 			user.macros = user.getMacros(user.cob);
 			user.heartRate = user.getHeartRate();
+			console.log('% GRASA', values.fatp);
 
 			//Response values asignation
 
